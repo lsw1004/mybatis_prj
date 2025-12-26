@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="car">
+
+	
+	<select id="selectMaker" parameterType="String" resultType="cmoDomain">
+	select maker
+	from car_country
+	where country = #{country}
+	</select>
+	
+	<select id="selectModel" parameterType="String" resultType="cmoDomain">
+	select distinct cma.model
+	from car_model cmo, car_maker cma
+	where cma.maker= #{maker}
+	</select>
+	
+	<select id="selectCarDetail" parameterType="String" resultType="cmoDomain">
+	select cma.maker, cmo.model, cmo.car_year, cmo.price, cmo.cc, cmo.car_img, cmo.input_date
+	from car_maker cma, car_model cmo
+	where cma.model = cmo.model and cmo.model=#{model}
+	order by cmo.input_date desc
+	</select>
+	
+</mapper>

@@ -33,11 +33,14 @@
 		조회된 사원 정보가 없습니다.
 		</c:when>
 		<c:otherwise>
-		사원명 : <c:out value="${eDTO.ename }"/>
-		연봉 : <c:out value="${eDTO.sal }"/>
-		직무 : <c:out value="${eDTO.job }"/>
-		입사일 : <c:out value="${eDTO.strHiredate}"/> <fmt:formatDate value="${eDTO.hiredate}" pattern="yyyy-MM-dd kk:mm:ss"/>
-		매니저번호 : <c:out value="${eDTO.mgr }"/>
+		사원명 : <c:out value="${ eDTO.ename }"/><br/>
+연봉 : $<fmt:formatNumber pattern="#,###.##" value="${ eDTO.sal }"/><br/>
+직무 : <c:out value="${ eDTO.job }"/><br/>
+매니저번호 : <c:out value="${ eDTO.mgr }"/><br/>
+부서번호 : <c:out value="${ eDTO.deptno }"/><br/>
+입사일 : <c:out value="${ eDTO.strHiredate }"/>(
+	<fmt:formatDate value="${ eDTO.hiredate }" pattern="yyyy-MM-dd kk:mm:ss"/>
+)<br/>
 		</c:otherwise>
 		</c:choose>
 	</c:if>
